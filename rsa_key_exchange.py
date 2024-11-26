@@ -57,7 +57,6 @@ def decrypt_secret_key(private_key, encrypted_secret_key):
     )
     return secret_key.decode()
 
-# Main Flow
 def main():
     # Step 1: Generate RSA keys for both parties
     private_key_A, public_key_A = generate_rsa_keys()

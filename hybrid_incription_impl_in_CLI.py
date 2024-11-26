@@ -60,7 +60,7 @@ def main():
     private_key = RSA.generate(2048)
     public_key = private_key.publickey().export_key()
     
-    message = "This is a hybrid encrypted message."
+    message = "This is a hybrid encrypted message done"
     
 def rsa_encrypt(message, public_key):
     rsa_key = RSA.import_key(public_key)
