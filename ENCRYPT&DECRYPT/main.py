@@ -28,9 +28,8 @@ f=Fernet(key)
 with open('enc_student.csv','rb') as encrypted_file:
     encrypted=encrypted_file.read()
 
-    decrypted = f.decrypt(encrypted)
+decrypted = f.decrypt(encrypted)
 
 
-with open('dec_student.csv','wb') as decryptd_file:
-
+with open('decrypted_student.csv','wb') as decryptd_file:
     decryptd_file.write(decrypted)
