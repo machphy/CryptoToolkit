@@ -1,10 +1,31 @@
+# from cryptography.fernet import Fernet
+
+# # Generate and save the key
+# key = Fernet.generate_key()
+# with open('key.key', 'wb') as key_file:
+#     key_file.write(key)
+
+# print("Key successfully generated and saved as 'key.key'.")
+
+
 from cryptography.fernet import Fernet
 
-# Generate a new key
-key = Fernet.generate_key()
+# Load the encryption key from the key file
+with open('key.key', 'rb') as key_file:
+    key = key_file.read()
 
-# Save the key to a file named 'kuchbhi.key'
-with open('make_new.key', 'wb') as key_file:
-    key_file.write(key)
+# Initialize Fernet with the loaded key
+f = Fernet(key)
 
-print("Encryption key generated and saved to 'make_new.key'.")
+# Read the contents of the file to encrypt (replace 'student_data.csv' with your actual file)
+with open('student_data.csv', 'rb') as original_file:
+    original_data = original_file.read()
+
+# Encrypt the file data
+encrypted_data = f.encrypt(original_data)
+
+# Save the encrypted data to a new file
+with open('enc_student.csv', 'wb') as encrypted_file:
+    encrypted_file.write(encrypted_data)
+
+print("File successfully encrypted and saved as 'enc_student.csv'.")
